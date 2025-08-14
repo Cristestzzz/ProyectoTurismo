@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import EditPackageModal from '../../components/operator/EditPackageModal';
 import axios from 'axios';
 import styles from './OperatorDashboard.module.css';
 import OperatorStats from '../../components/operator/OperatorStats';
@@ -11,6 +12,8 @@ const OperatorDashboard: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [paquetes, setPaquetes] = useState<any[]>([]);
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [selectedPaquete, setSelectedPaquete] = useState<any>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -71,6 +74,18 @@ const OperatorDashboard: React.FC = () => {
     navigate('/dashboard-operador/crear-paquete');
   };
 
+  const handleEditClick = (paquete: any) => {
+    setSelectedPaquete(paquete);
+    setEditModalOpen(true);
+  };
+
+  const handleEditModalClose = () => {
+    setEditModalOpen(false);
+    setSelectedPaquete(null);
+    // Opcional: recargar paquetes después de editar
+    // Puedes agregar aquí la lógica para refrescar la lista si lo deseas
+  };
+
   return (
     <div className={styles.dashboardContainer}>
       <header className={styles.header}>
@@ -115,11 +130,23 @@ const OperatorDashboard: React.FC = () => {
                    p.estado === 'pendiente' ? 'Pendiente' :
                    p.estado === 'accion_necesaria' ? 'Acción necesaria' : p.estado}
                 </div>
+                <button className={styles.actionButton} style={{ marginTop: 8 }} onClick={() => handleEditClick(p)}>
+                  Editar
+                </button>
               </div>
             </div>
           ))
         )}
       </div>
+
+      {/* Modal de edición de paquete */}
+      {editModalOpen && selectedPaquete && (
+        <EditPackageModal
+          open={editModalOpen}
+          onClose={handleEditModalClose}
+          paquete={selectedPaquete}
+        />
+      )}
     </div>
   );
 };

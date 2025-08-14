@@ -6,21 +6,14 @@ const CreatePackagePage: React.FC = () => {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
 
-  const handleSave = (data: any) => {
-    // Aquí iría la lógica para enviar el paquete al backend
-    console.log('Nuevo paquete:', data);
-    setOpen(false);
-    navigate('/dashboard-operador');
-  };
-
   const handleClose = () => {
     setOpen(false);
-    navigate('/dashboard-operador');
+    navigate('/dashboard-operador'); // Redirige al dashboard del operador
   };
 
   return (
     <div>
-      <CreatePackageModal open={open} onClose={handleClose} onSave={handleSave} />
+      <CreatePackageModal open={open} onClose={handleClose} />
     </div>
   );
 };

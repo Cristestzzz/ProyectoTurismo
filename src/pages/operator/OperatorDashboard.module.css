@@ -1,0 +1,99 @@
+.dashboardContainer {
+  background: #f7f7fa;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+.header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.header p {
+  color: #888;
+  font-size: 1.1rem;
+}
+.statsRow {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.statCard {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 8px rgba(60,110,113,0.08);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-weight: 500;
+  min-width: 120px;
+}
+.statNumber {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+.actionsRow {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.actionButton {
+  background: #003366;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.actionButton:hover {
+  background: #bfa43a;
+  color: #fff;
+}
+.cardsRow {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.propertyCard {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 8px rgba(60,110,113,0.08);
+  overflow: hidden;
+  width: 320px;
+  margin-bottom: 2rem;
+}
+.propertyCard img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.cardInfo {
+  padding: 1rem;
+}
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.cardStatus {
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  display: inline-block;
+}
+.active {
+  background: #e6f4ea;
+  color: #2e7d32;
+}
+.action {
+  background: #fffbe6;
+  color: #bfa43a;
+}

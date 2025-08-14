@@ -1,0 +1,117 @@
+
+
+
+.registerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.registerForm {
+  width: 100%;
+  max-width: 400px;
+  border:1px solid var(--color-secondary-dark);
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--color-text-light);
+  border-radius: 1rem;
+}
+
+.registerForm h2 {
+  font-size: 1.875rem;
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-text-main);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  padding: 0.75rem 1.25rem;
+  border-radius: 1rem;
+  border: 2px solid var(--color-old-gold);
+  font-size: 1rem;
+  outline: none;
+  background: var(--color-text-light);
+  color: var(--color-text-main);
+  box-shadow: 0 2px 8px rgba(60, 110, 113, 0.08);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.input:focus {
+  border-color: var(--color-emerald-green);
+  box-shadow: 0 4px 12px rgba(60, 110, 113, 0.15);
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-text-main);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.registerForm .error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+
+.registerForm .registerButton {
+  width: 100%;
+  background: var(--color-primary-main, #2e7d32);
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 16px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.2s;
+}
+.registerForm .registerButton:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.registerForm .loginLink {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 8px;
+  color: var(--color-text-main);
+}
+.registerForm .loginLink span {
+  color: var(--color-accent-cool);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  transition: color 0.2s;
+}
+.registerForm .loginLink span:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}

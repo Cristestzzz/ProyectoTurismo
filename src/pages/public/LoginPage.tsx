@@ -7,7 +7,6 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleRegisterClick = () => {
-    alert("Navegando a la página de registro (aún por crear)...");
     navigate('/registro');
   };
 

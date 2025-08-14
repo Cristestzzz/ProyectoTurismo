@@ -1,13 +1,13 @@
-import { Footer, Features, HeroSection, Header, Locations, FeaturedActivities, MadreDeDiosSection } from '../../components/layout';
 
-interface HomePageProps {
-  isHomePage?: boolean;
-}
+import { Footer, Features, HeroSection, Header, Locations, FeaturedActivities, MadreDeDiosSection } from '../../components/layout';
+import { useState } from 'react';
 
 function HomePage() {
+  const [user, setUser] = useState<any>(null);
+
   // Datos para las features que coinciden con la imagen
   const featuresData = {
-    mainTitle: "", // No se muestra título principal en la imagen
+    mainTitle: "",
     items: [
       {
         title: "Atención al cliente",
@@ -36,35 +36,34 @@ function HomePage() {
     ]
   };
 
+  // Renderizado condicional según el rol
+  const isOperador = user?.es_operador === true;
+
   return (
     <div className="app-container">
-      <Header isHomePage={true} />
-      
-      <HeroSection
-        images={[
-          "https://live.staticflickr.com/8266/8746178810_7cf99099c1_h.jpg",
-          "https://live.staticflickr.com/3751/8973127846_c09e43054b_k.jpg",
-          "https://live.staticflickr.com/5489/9387084053_983025f3d6_h.jpg"
-         
-         
-        ]} 
-      />
-      
-      <Features 
-        mainTitle={featuresData.mainTitle} 
-        items={featuresData.items} 
-      />
-
-      <Locations />
-
-      <MadreDeDiosSection />
-
-      <FeaturedActivities />
-
-      <Footer 
-        companyName="Turismoo verde"
-        year={2025}
-      />
+      <Header isHomePage={true} onUserLoaded={setUser} />
+      {isOperador ? (
+        <div style={{padding: '3rem 2rem', textAlign: 'center'}}>
+          <h2>Bienvenido operador turístico</h2>
+          <p>Accede a tus herramientas de gestión, anuncios y reservas.</p>
+          {/* Aquí puedes renderizar componentes exclusivos para operadores */}
+        </div>
+      ) : (
+        <>
+          <HeroSection
+            images={[
+              "https://live.staticflickr.com/8266/8746178810_7cf99099c1_h.jpg",
+              "https://live.staticflickr.com/3751/8973127846_c09e43054b_k.jpg",
+              "https://live.staticflickr.com/5489/9387084053_983025f3d6_h.jpg"
+            ]}
+          />
+          <Features mainTitle={featuresData.mainTitle} items={featuresData.items} />
+          <Locations />
+          <MadreDeDiosSection />
+          <FeaturedActivities />
+        </>
+      )}
+      <Footer companyName="Turismoo verde" year={2025} />
     </div>
   );
 }
